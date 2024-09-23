@@ -19,6 +19,7 @@ Route::get('/give-admin/{id}', function ($id) {
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/admin/users', [AdminController::class, 'users'])->name('admin.users');
+    Route::get('/admin/company', [AdminController::class, 'company'])->name('admin.company');
 });
 
 // Route::middleware(['auth', 'role:user'])->group(function () {

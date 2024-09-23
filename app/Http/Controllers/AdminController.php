@@ -15,8 +15,14 @@ class AdminController extends Controller
 
     public function users()
     {
-        $users = User::all(); // Ambil semua pengguna dari database
-        return view('admin.users', compact('users'));
+        $data = User::with(relations: 'roles')->get();
+        return view('admin.users', compact('data' ));
+    }
+
+    public function company()
+    {
+        $data = User::with(relations: 'roles')->get();
+        return view('admin.company', compact('data' ));
     }
 
     /**

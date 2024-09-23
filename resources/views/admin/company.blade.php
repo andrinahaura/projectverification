@@ -4,7 +4,7 @@
 <div class="card">
     <div class="card-header">
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAdmin">
-        Add Admin
+        Add Company
       </button>
     </div>
     <!-- /.card-header -->
@@ -35,7 +35,7 @@
     <!-- /.card-body -->
   </div>
 
-@include('admin.modals.add_admin')
+@include('admin.modals.add_company')
 
 
 @endsection

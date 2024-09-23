@@ -1,27 +1,45 @@
 @extends('layouts.admin')
 
+
+
 @section('content')
-    <h2 class="text-2xl font-semibold">Manage Users</h2>
-    <table class="min-w-full border-collapse border border-gray-200">
+
+
+<div class="card">
+    <div class="card-header">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAdmin">
+        Add Admin
+      </button>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table id="example1" class="table table-bordered table-striped">
         <thead>
-            <tr>
-                <th class="border border-gray-300 px-4 py-2">Name</th>
-                <th class="border border-gray-300 px-4 py-2">Email</th>
-                <th class="border border-gray-300 px-4 py-2">Role</th>
-            </tr>
+        <tr class="text-center">
+          <th>No</th>
+          <th>ID USER</th>
+          <th>NAME</th>
+          <th>EMAIL</th>
+          <th>ROLE</th>
+          {{-- <th>Action</th> --}}
+        </tr>
         </thead>
+        @foreach ($data as $kmr )
         <tbody>
-            @foreach ($users as $user)
-                <tr>
-                    <td class="border border-gray-300 px-4 py-2">{{ $user->name }}</td>
-                    <td class="border border-gray-300 px-4 py-2">{{ $user->email }}</td>
-                    <td class="border border-gray-300 px-4 py-2">
-                        @foreach ($user->getRoleNames() as $role)
-                            {{ $role }}
-                        @endforeach
-                    </td>
-                </tr>
-            @endforeach
+        <td><center>{{$loop->iteration}}</center></td>
+        <td><center>{{$kmr->id}}</center></td>
+        <td><center>{{$kmr->name}}</center></td>
+        <td><center>{{$kmr->email}}</center></td>
+        <td><center>{{$kmr->roles[0]->name}}</center></td>
+
         </tbody>
-    </table>
+        @endforeach
+      </table>
+    </div>
+    <!-- /.card-body -->
+  </div>
+
+@include('admin.modals.add_admin')
+
+
 @endsection
