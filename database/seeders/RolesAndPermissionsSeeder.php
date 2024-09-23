@@ -21,8 +21,8 @@ class RolesAndPermissionsSeeder extends Seeder
 
         // Buat role (peran) dan tambahkan permission
         $adminRole = Role::create(['name' => 'admin']);
-        $userRole = Role::create(['name' => 'user']);
-        $managerRole = Role::create(['name' => 'manager']);
+        $userRole = Role::create(['name' => 'supervisor']);
+        $managerRole = Role::create(['name' => 'admincom']);
 
         // Berikan permission ke role admin
         $adminRole->givePermissionTo(['create articles', 'edit articles', 'delete articles', 'view articles']);
